@@ -5,6 +5,7 @@ Release: %mkrel 1
 License: GPL
 Group: System/Servers
 Source: http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-%{version}.tar.bz2
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 URL: http://www.galago-project.org/
 Provides: notify-daemon
 Obsoletes: notify-daemon
