@@ -1,7 +1,7 @@
 Summary: Notification Daemon
 Name: notification-daemon
 Version: 0.3.7
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL
 Group: System/Servers
 Source: http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-%{version}.tar.bz2
