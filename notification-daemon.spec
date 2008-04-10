@@ -1,12 +1,14 @@
 Summary: Notification Daemon
 Name: notification-daemon
 Version: 0.3.7
-Release: %mkrel 3
+Release: %mkrel 4
 License: GPL
 Group: System/Servers
 Source: http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-%{version}.tar.bz2
 #gw from Fedora: interpret markup in the notification summary
 Patch: notification-daemon-0.3.7-summary-markup.patch
+#gw from RH: fix clipped notifications (bug #39952)
+Patch1: notification-daemon-clipping.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 URL: http://www.galago-project.org/
 Provides: notify-daemon
@@ -25,6 +27,7 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %prep
 %setup -q
 %patch -p1
+%patch1 -p1
 
 %build
 %configure2_5x
