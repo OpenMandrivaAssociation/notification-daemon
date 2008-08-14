@@ -2,7 +2,7 @@ Summary: Notification Daemon
 Name: notification-daemon
 Version: 0.3.7
 Release: %mkrel 5
-License: GPL
+License: GPLv2+
 Group: System/Servers
 Source: http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-%{version}.tar.bz2
 #gw from Fedora: interpret markup in the notification summary
