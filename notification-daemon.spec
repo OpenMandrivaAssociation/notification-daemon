@@ -23,6 +23,7 @@ BuildRequires: libnotify-devel
 BuildRequires: gstreamer0.10-devel
 BuildRequires: intltool
 
+
 %description
 A daemon that displays passive pop-up notifications as per the
 Desktop Notifications spec (http://galago.info/specs/notification/index.php).
