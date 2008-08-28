@@ -22,6 +22,7 @@ BuildRequires: libGConf2-devel
 BuildRequires: libnotify-devel
 BuildRequires: gstreamer0.10-devel
 BuildRequires: intltool
+BuildRequires: gnome-common
 
 
 %description
