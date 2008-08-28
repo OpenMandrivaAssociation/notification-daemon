@@ -19,6 +19,7 @@ Buildrequires: dbus-glib-devel
 BuildRequires: libsexy-devel
 BuildRequires: libwnck-devel
 BuildRequires: libGConf2-devel
+BuildRequires: libglade2.0-devel
 BuildRequires: libnotify-devel
 BuildRequires: gstreamer0.10-devel
 BuildRequires: intltool
