@@ -2,10 +2,13 @@
 Summary: Notification Daemon
 Name: notification-daemon
 Version: 0.3.90
-Release: %mkrel 0.%svn.1
+Release: %mkrel 0.%svn.2
 License: GPLv2+
 Group: System/Servers
 Source: http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-%{svn}.tar.bz2
+#gw taken from notification-daemon-xfce
+Source1: notification-properties-48.png
+Source2: notification-properties-22.png
 #gw from RH: fix clipped notifications (bug #39952)
 Patch2: notification-daemon-clipping.patch
 Patch3: notification-daemon-svn3009-distfix.patch
@@ -47,15 +50,22 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 rm -f %buildroot%_libdir/%name-1.0/engines/*.a
 %find_lang %name
+#gw icons
+install -D %SOURCE1 %buildroot%_datadir/icons/hicolor/48x48/apps/notification-properties.png
+install -D %SOURCE2 %buildroot%_datadir/icons/hicolor/22x22/apps/notification-properties.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 %post_install_gconf_schemas %name
+%update_icon_cache hicolor
 
 %preun
 %preun_uninstall_gconf_schemas %name
+
+%postun
+%clean_icon_cache hicolor
 
 %files -f %name.lang
 %defattr(-,root,root)
@@ -67,5 +77,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_libexecdir}/%name
 %_libdir/notification-daemon-1.0/
 %{_datadir}/dbus-1/services/*
-
+%_datadir/icons/hicolor/*/apps/*
 
