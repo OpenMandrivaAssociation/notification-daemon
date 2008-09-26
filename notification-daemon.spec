@@ -1,8 +1,8 @@
-%define svn r3009
+%define svn r3017
 Summary: Notification Daemon
 Name: notification-daemon
 Version: 0.3.90
-Release: %mkrel 0.%svn.2
+Release: %mkrel 0.%svn.1
 License: GPLv2+
 Group: System/Servers
 Source: http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-%{svn}.tar.bz2
@@ -12,7 +12,6 @@ Source2: notification-properties-22.png
 #gw from RH: fix clipped notifications (bug #39952)
 Patch2: notification-daemon-clipping.patch
 Patch3: notification-daemon-svn3009-distfix.patch
-Patch4: notification-daemon-positioning.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 URL: http://www.galago-project.org/
 Provides: notify-daemon
@@ -37,7 +36,6 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %setup -q -n %name
 %patch2 -p1 -b .clipping
 %patch3 -p0 -b .svn3009-distfix
-%patch4 -p0 -b .positioning
 ./autogen.sh
 intltoolize --force
 
