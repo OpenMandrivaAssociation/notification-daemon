@@ -2,7 +2,7 @@
 Summary: Notification Daemon
 Name: notification-daemon
 Version: 0.3.90
-Release: %mkrel 0.%svn.1
+Release: %mkrel 0.%svn.2
 License: GPLv2+
 Group: System/Servers
 Source: http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-%{svn}.tar.bz2
@@ -14,8 +14,8 @@ Patch2: notification-daemon-clipping.patch
 Patch3: notification-daemon-svn3009-distfix.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 URL: http://www.galago-project.org/
-Provides: notify-daemon
-Obsoletes: notify-daemon
+Provides: notify-daemon notification-daemon-xfce
+Obsoletes: notify-daemon notification-daemon-xfce
 Provides: virtual-notification-daemon
 Buildrequires: dbus-glib-devel
 BuildRequires: libsexy-devel
