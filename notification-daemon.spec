@@ -7,9 +7,10 @@ Group: System/Servers
 Source: http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 URL: http://www.galago-project.org/
-Provides: notify-daemon notification-daemon-xfce
-Obsoletes: notify-daemon notification-daemon-xfce
+Provides: notify-daemon
+Obsoletes: notify-daemon
 Provides: virtual-notification-daemon
+Conflicts:	xfce4-notifyd
 Buildrequires: dbus-glib-devel
 BuildRequires: libsexy-devel
 BuildRequires: libwnck-devel
