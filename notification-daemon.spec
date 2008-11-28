@@ -8,7 +8,7 @@ Source: http://www.galago-project.org/files/releases/source/notification-daemon/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 URL: http://www.galago-project.org/
 Provides: notify-daemon
-Obsoletes: notify-daemon
+Obsoletes: notify-daemon < %{version}
 Provides: virtual-notification-daemon
 Conflicts:	xfce4-notifyd
 Buildrequires: dbus-glib-devel
