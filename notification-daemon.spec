@@ -1,11 +1,12 @@
 Summary:	Notification Daemon
 Name:		notification-daemon
 Version:	0.4.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.bz2
+Patch:notification-daemon-0.4.0-dont-display-capplet.patch
 Buildrequires:	dbus-glib-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	libwnck-devel
@@ -27,6 +28,7 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %configure2_5x --disable-static
