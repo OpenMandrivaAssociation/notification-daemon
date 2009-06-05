@@ -1,7 +1,7 @@
 Summary:	Notification Daemon
 Name:		notification-daemon
 Version:	0.4.0
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
@@ -16,6 +16,7 @@ BuildRequires:	libnotify-devel
 BuildRequires:	gstreamer0.10-devel
 BuildRequires:	intltool
 BuildRequires:	gnome-common
+Requires: gstreamer0.10-plugins-base
 Provides:	notify-daemon
 Obsoletes:	notify-daemon < %{version}
 Provides:	virtual-notification-daemon
