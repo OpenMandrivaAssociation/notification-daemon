@@ -1,19 +1,22 @@
 Summary:	Notification Daemon
 Name:		notification-daemon
 Version:	0.4.0
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.bz2
-Patch:notification-daemon-0.4.0-dont-display-capplet.patch
+Patch0:notification-daemon-0.4.0-dont-display-capplet.patch
+# (fc) 0.4.0-5mdv use libcanberra instead of gstreamer for sound events
+Patch1:		notification-daemon-0.4.0-libcanberra.patch
+# (fc) 0.4.0-5mdv no longer use libsexy, use gtk features instead (Fedora)
+Patch2:		sexy.patch
 Buildrequires:	dbus-glib-devel
-BuildRequires:	libsexy-devel
 BuildRequires:	libwnck-devel
 BuildRequires:	libGConf2-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:	libnotify-devel
-BuildRequires:	gstreamer0.10-devel
+BuildRequires:	libcanberra-devel
 BuildRequires:	intltool
 BuildRequires:	gnome-common
 Requires: gstreamer0.10-plugins-base
@@ -29,7 +32,13 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1 -b .capplet
+%patch1 -p1 -b .libcanberra
+%patch2 -p1 -b .sexy
+
+#needed by patches 1 & 2
+libtoolize --force --copy
+autoreconf
 
 %build
 %configure2_5x --disable-static
