@@ -1,7 +1,7 @@
 Summary:	Notification Daemon
 Name:		notification-daemon
 Version:	0.4.0
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
@@ -11,6 +11,8 @@ Patch0:notification-daemon-0.4.0-dont-display-capplet.patch
 Patch1:		notification-daemon-0.4.0-libcanberra.patch
 # (fc) 0.4.0-5mdv no longer use libsexy, use gtk features instead (Fedora)
 Patch2:		sexy.patch
+# (fc) 0.4.0-7mdv use nodoka theme by default
+Patch3:		nodoka.patch
 Buildrequires:	dbus-glib-devel
 BuildRequires:	libwnck-devel
 BuildRequires:	libGConf2-devel
@@ -25,6 +27,8 @@ Provides:	virtual-notification-daemon
 Conflicts:	xfce4-notifyd
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
+Suggests:	notification-daemon-engine-nodoka
+
 %description
 A daemon that displays passive pop-up notifications as per the
 Desktop Notifications spec (http://galago.info/specs/notification/index.php).
@@ -34,6 +38,7 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %patch0 -p1 -b .capplet
 %patch1 -p1 -b .libcanberra
 %patch2 -p1 -b .sexy
+%patch3 -p1 -b .nodoka
 
 #needed by patches 1 & 2
 libtoolize --force --copy
