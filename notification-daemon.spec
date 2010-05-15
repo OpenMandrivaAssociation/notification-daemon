@@ -1,7 +1,7 @@
 Summary:	Notification Daemon
 Name:		notification-daemon
 Version:	0.4.0
-Release:	%mkrel 8
+Release:	%mkrel 9
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
@@ -13,6 +13,9 @@ Patch1:		notification-daemon-0.4.0-libcanberra.patch
 Patch2:		sexy.patch
 # (fc) 0.4.0-7mdv use nodoka theme by default
 Patch3:		nodoka.patch
+#gw from Fedora, don't crash if a new monitor is connected
+#https://qa.mandriva.com/show_bug.cgi?id=59195
+Patch4:		variable-monitors.patch
 Buildrequires:	dbus-glib-devel
 BuildRequires:	libwnck-devel
 BuildRequires:	libGConf2-devel
@@ -35,10 +38,7 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 
 %prep
 %setup -q
-%patch0 -p1 -b .capplet
-%patch1 -p1 -b .libcanberra
-%patch2 -p1 -b .sexy
-%patch3 -p1 -b .nodoka
+%apply_patches
 
 #needed by patches 1 & 2
 libtoolize --force --copy
