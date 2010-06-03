@@ -59,21 +59,8 @@ rm -f %{buildroot}%{_libdir}/%{name}-1.0/engines/*.a
 %clean
 rm -rf %{buildroot}
 
-%if %mdkversion < 200900
-%post
-%post_install_gconf_schemas %name
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
 %preun
 %preun_uninstall_gconf_schemas %name
-%endif
-
-%if %mdkversion < 200900
-%postun
-%clean_icon_cache hicolor
-%endif
 
 %files -f %name.lang
 %defattr(-,root,root)
