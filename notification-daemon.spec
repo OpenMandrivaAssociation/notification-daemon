@@ -19,8 +19,9 @@ Obsoletes:	notify-daemon < %{version}
 Provides:	virtual-notification-daemon
 Conflicts:	xfce4-notifyd
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-
 Suggests:	notification-daemon-engine-nodoka
+Requires(post): GConf2
+Requires(preun): GConf2
 
 %description
 A daemon that displays passive pop-up notifications as per the
