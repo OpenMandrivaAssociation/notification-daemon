@@ -11,7 +11,7 @@ BuildRequires:	libwnck-devel
 BuildRequires:	libGConf2-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	libnotify-devel
-BuildRequires:	libcanberra-devel
+BuildRequires:	libcanberra-gtk-devel
 BuildRequires:	intltool
 BuildRequires:	gnome-common
 Provides:	notify-daemon
