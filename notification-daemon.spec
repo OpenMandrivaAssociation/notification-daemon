@@ -1,7 +1,7 @@
 Summary:	Notification Daemon
 Name:		notification-daemon
 Version:	0.5.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
@@ -40,6 +40,13 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %{name}
+# Really, just use gconftool for this
+rm -f $RPM_BUILD_ROOT%{_bindir}/notification-properties
+rm -f $RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
+rm -f $RPM_BUILD_ROOT%{_datadir}/notification-daemon/notification-properties.ui
+rmdir $RPM_BUILD_ROOT%{_datadir}/notification-daemon/
+rm -rf $RPM_BUILD_ROOT%{_datadir}/icons
+
 
 %clean
 rm -rf %{buildroot}
@@ -50,11 +57,7 @@ rm -rf %{buildroot}
 %files -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
-%{_bindir}/notification-properties
-%{_datadir}/applications/notification-properties.desktop
-%{_datadir}/%{name}
 %{_sysconfdir}/gconf/schemas/notification-daemon.schemas
 %{_libexecdir}/%{name}
 %{_libdir}/notification-daemon-1.0/
 %{_datadir}/dbus-1/services/*
-%{_datadir}/icons/hicolor/*/apps/*
