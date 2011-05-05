@@ -6,6 +6,7 @@ License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+Patch0:		notification-daemon-0.5.0-libnotify-0.7.patch
 Buildrequires:	dbus-glib-devel
 BuildRequires:	libwnck-devel
 BuildRequires:	libGConf2-devel
@@ -31,7 +32,7 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %apply_patches
 
 %build
-%configure2_5x --disable-static
+%configure2_5x --disable-static --disable-schemas-install
 %make
 
 %install
