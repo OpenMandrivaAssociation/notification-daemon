@@ -41,11 +41,11 @@ rm -rf %{buildroot}
 
 %find_lang %{name}
 # Really, just use gconftool for this
-rm -f $RPM_BUILD_ROOT%{_bindir}/notification-properties
-rm -f $RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
-rm -f $RPM_BUILD_ROOT%{_datadir}/notification-daemon/notification-properties.ui
-rmdir $RPM_BUILD_ROOT%{_datadir}/notification-daemon/
-rm -rf $RPM_BUILD_ROOT%{_datadir}/icons
+rm -f %{buildroot}%{_bindir}/notification-properties
+rm -f %{buildroot}%{_datadir}/applications/*.desktop
+rm -f %{buildroot}%{_datadir}/notification-daemon/notification-properties.ui
+rmdir %{buildroot}%{_datadir}/notification-daemon/
+rm -rf %{buildroot}%{_datadir}/icons
 
 
 %clean
