@@ -1,27 +1,25 @@
+%define url_ver	%(echo %{version}|cut -d. -f1,2)
+
 Summary:	Notification Daemon
 Name:		notification-daemon
-Version:	0.5.0
-Release:	%mkrel 3
+Version:	0.7.4
+Release:	1
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-Patch0:		notification-daemon-0.5.0-libnotify-0.7.patch
-Buildrequires:	dbus-glib-devel
-BuildRequires:	libwnck-devel
-BuildRequires:	libGConf2-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:	libnotify-devel
-BuildRequires:	libcanberra-gtk-devel
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/%{url_ver}/%{name}-%{version}.tar.xz
+
 BuildRequires:	intltool
-Provides:	notify-daemon
-Obsoletes:	notify-daemon < %{version}
+BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(libcanberra-gtk3)
+BuildRequires:  pkgconfig(x11)
+
 Provides:	virtual-notification-daemon
 Conflicts:	xfce4-notifyd
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+
 Suggests:	notification-daemon-engine-nodoka
-Requires(post): GConf2
-Requires(preun): GConf2
+Requires(post,preun): GConf2
 
 %description
 A daemon that displays passive pop-up notifications as per the
@@ -32,32 +30,18 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %apply_patches
 
 %build
-%configure2_5x --disable-static --disable-schemas-install
+%configure2_5x \
+	--disable-static
+
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %{name}
-# Really, just use gconftool for this
-rm -f %{buildroot}%{_bindir}/notification-properties
-rm -f %{buildroot}%{_datadir}/applications/*.desktop
-rm -f %{buildroot}%{_datadir}/notification-daemon/notification-properties.ui
-rmdir %{buildroot}%{_datadir}/notification-daemon/
-rm -rf %{buildroot}%{_datadir}/icons
 
-
-%clean
-rm -rf %{buildroot}
-
-%preun
-%preun_uninstall_gconf_schemas %name
-
-%files -f %name.lang
-%defattr(-,root,root)
+%files -f %{name}.lang
 %doc AUTHORS ChangeLog README
-%{_sysconfdir}/gconf/schemas/notification-daemon.schemas
 %{_libexecdir}/%{name}
-%{_libdir}/notification-daemon-1.0/
-%{_datadir}/dbus-1/services/*
+%{_datadir}/applications/*.desktop
+
