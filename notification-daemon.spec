@@ -2,7 +2,7 @@
 
 Summary:	Notification Daemon
 Name:		notification-daemon
-Version:	0.7.4
+Version:	0.7.5
 Release:	1
 License:	GPLv2+
 Group:		System/Servers
@@ -44,4 +44,3 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %doc AUTHORS ChangeLog README
 %{_libexecdir}/%{name}
 %{_datadir}/applications/*.desktop
-
