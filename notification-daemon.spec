@@ -1,6 +1,6 @@
 Summary:	Notification Daemon
 Name:		notification-daemon
-Version:	0.7.5
+Version:	0.7.6
 Release:	1
 License:	GPLv2+
 Group:		System/Servers
