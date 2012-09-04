@@ -1,5 +1,3 @@
-%define url_ver	%(echo %{version}|cut -d. -f1,2)
-
 Summary:	Notification Daemon
 Name:		notification-daemon
 Version:	0.7.5
@@ -7,7 +5,7 @@ Release:	1
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.galago-project.org/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:  pkgconfig(glib-2.0)
