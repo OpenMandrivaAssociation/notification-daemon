@@ -30,9 +30,7 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %apply_patches
 
 %build
-%configure \
-	--disable-static
-
+%configure
 %make
 
 %install
@@ -44,4 +42,4 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %doc AUTHORS ChangeLog README
 %{_libexecdir}/%{name}
 %{_datadir}/applications/*.desktop
-
+%{_sysconfdir}/xdg/autostart/%{name}-autostart.desktop
