@@ -2,12 +2,12 @@
 
 Summary:	Notification Daemon
 Name:		notification-daemon
-Version:	3.16.0
+Version:	3.16.1
 Release:	1
 License:	GPLv2+
 Group:		System/Servers
 Url:		http://www.galago-project.org/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/notification-daemon/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(glib-2.0)
