@@ -19,7 +19,6 @@ Provides:	virtual-notification-daemon
 Conflicts:	xfce4-notifyd
 
 Suggests:	notification-daemon-engine-nodoka
-Requires(post,preun):	GConf2
 
 %description
 A daemon that displays passive pop-up notifications as per the
