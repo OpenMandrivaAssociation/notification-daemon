@@ -1,9 +1,10 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
+%define _disable_rebuild_configure 1
 
 Summary:	Notification Daemon
 Name:		notification-daemon
-Version:	3.16.1
-Release:	3
+Version:	3.18.1
+Release:	1
 License:	GPLv2+
 Group:		System/Servers
 Url:		http://www.galago-project.org/

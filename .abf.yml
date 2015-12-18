@@ -1,4 +1,5 @@
 removed_sources:
   notification-daemon-3.16.0.tar.xz: 8e85d63054d239d48af0ede3033fe4a2af01d396
-sources:
   notification-daemon-3.16.1.tar.xz: b05323b1ac183f0004a3706f63714dce7c73e337
+sources:
+  notification-daemon-3.18.1.tar.xz: ef3cd7473550b3fbee9158c26d7f0335650c3571
