@@ -3,14 +3,15 @@
 
 Summary:	Notification Daemon
 Name:		notification-daemon
-Version:	3.18.1
-Release:	3
+Version:	3.20.0
+Release:	1
 License:	GPLv2+
 Group:		System/Servers
 Url:		http://www.galago-project.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
+BuildRequires:  pkgconfig(gio-2.0) 
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libcanberra-gtk3)
@@ -41,4 +42,9 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 %doc AUTHORS ChangeLog README
 %{_libexecdir}/%{name}
 %{_datadir}/applications/*.desktop
-%{_sysconfdir}/xdg/autostart/%{name}-autostart.desktop
+
+# From MGA. 
+# ovitters: DO NOT PACKAGE THIS!
+#           A desktop should start this explicitly themselves else it'll break
+#           anything that already handles noticiations, such as e.g. GNOME
+%exclude %{_sysconfdir}/xdg/autostart/%{name}-autostart.desktop
