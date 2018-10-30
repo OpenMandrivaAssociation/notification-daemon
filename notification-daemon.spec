@@ -4,7 +4,7 @@
 Summary:	Notification Daemon
 Name:		notification-daemon
 Version:	3.20.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Servers
 Url:		http://www.galago-project.org/
