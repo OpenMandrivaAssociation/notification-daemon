@@ -27,7 +27,7 @@ Desktop Notifications spec (http://galago.info/specs/notification/index.php).
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure
