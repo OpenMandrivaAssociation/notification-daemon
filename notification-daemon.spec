@@ -7,7 +7,7 @@ Version:	3.20.0
 Release:	3
 License:	GPLv2+
 Group:		System/Servers
-Url:		http://www.galago-project.org/
+Url:		https://www.galago-project.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
